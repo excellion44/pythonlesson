@@ -1,6 +1,10 @@
-Для создания исполняемого файла в формате .exe для Windows и исполняемого файла для Linux
+#Для создания исполняемого файла в формате .exe для Windows и исполняемого файла для Linux
 #Установите библиотеку PyInstaller
 pip install pyinstaller
 
 #создания .exe файла без консольного окна:
 pyinstaller --onefile --noconsole ваш_скрипт.py
+
+
+#Переделать файл QtDesinger *.ui в  питоновский
+pyuic5 forms.ui -o forms.py
