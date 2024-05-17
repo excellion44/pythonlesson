@@ -186,12 +186,18 @@ class Ui_MainWindow(object):
         self.btn_9.clicked.connect(lambda: self.write_number("9"))
         self.btn_plus.clicked.connect(lambda: self.deistvie("+"))
         self.btn_minus.clicked.connect(lambda: self.deistvie("-"))
+        self.btn_umn.clicked.connect(lambda: self.deistvie("*"))
+        self.btn_del.clicked.connect(lambda: self.deistvie("/"))
         self.btn_ravno.clicked.connect(lambda: self.deistvie("="))
 
     # обрабатываем то что нам прилетело из кнопки
     def write_number(self, number):
         if self.label.text() == "0" and number != "0":
             self.label.setText(number)
+            return
+        if self.label.text() == "0" and number == "0":
+            self.label.setText(number)
+            return
         else:
             self.label.setText(self.label.text() + number)
 
@@ -204,11 +210,19 @@ class Ui_MainWindow(object):
         else:
             self.b = self.label.text()
             if self.znak == "+":
-                rezult = int(self.a)+int(self.b)
+                rezult = float(self.a)+float(self.b)
                 self.label.setText(str(rezult))
                 self.a = "0"
             if self.znak == "-":
-                rezult = int(self.a)-int(self.b)
+                rezult = float(self.a)-float(self.b)
+                self.label.setText(str(rezult))
+                self.a = "0"
+            if self.znak == "*":
+                rezult = float(self.a)*float(self.b)
+                self.label.setText(str(rezult))
+                self.a = "0"
+            if self.znak == "/":
+                rezult = float(self.a)/float(self.b)
                 self.label.setText(str(rezult))
                 self.a = "0"
 
